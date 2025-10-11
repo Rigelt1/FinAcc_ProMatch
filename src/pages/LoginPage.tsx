@@ -8,8 +8,8 @@ const LoginPage: React.FC = () => {
 
   // 内置用户凭证
   const validCredentials = [
-    { username: 'user1', password: 'pass1' },
-    { username: 'user2', password: 'pass2' },
+    { username: 'rmsadmin1', password: 'p@ssword123' },
+    { username: 'ratadmin1', password: 'p@ssword456' },
     { username: 'admin1', password: 'admin123' },
     { username: 'admin2', password: 'admin456' }
   ];
@@ -17,17 +17,25 @@ const LoginPage: React.FC = () => {
   const onFinish = (values: { username: string; password: string }) => {
     setLoading(true);
     const { username, password } = values;
-    
+    let comModel = false;
+    if(username === 'rmsadmin1' || username === 'admin1') {
+          comModel = true;
+        }else{
+          comModel = false;
+        }
     // 模拟登录验证
     setTimeout(() => {
       const isValid = validCredentials.some(
         cred => cred.username === username && cred.password === password
       );
       
-      if (isValid) {
+      if (isValid && comModel) {
         message.success('登录成功!');
-        navigate('/broadcast');
-      } else {
+        navigate('/robotapptechbroadcast');
+      } else if(isValid && !comModel){
+          message.success('登录成功!');
+          navigate('/rmsbroadcast');
+      }else {
         message.error('用户名或密码错误');
       }
       setLoading(false);
@@ -36,7 +44,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div style={{ maxWidth: 400, margin: '100px auto', padding: 20 }}>
-      <h1 style={{ textAlign: 'center', marginBottom: 24 }}>金融财会职业技能大赛</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: 24 }}>山东省“技能兴鲁”职业技能大赛</h1>
       <Form
         name="login"
         initialValues={{ remember: true }}

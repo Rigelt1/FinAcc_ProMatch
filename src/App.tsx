@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-import BroadcastPage from './pages/BroadcastPage';
+import RobotAppTechBroadcastPage from './pages/RobotAppTechBroadcastPage';
+import RMSBroadcastPage from './pages/RMSBroadcastPage';
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/broadcast" element={<BroadcastPage />} />
+        <Route path="/robotapptechbroadcast" element={<RobotAppTechBroadcastPage />} />
+        <Route path="/rmsbroadcast" element={<RMSBroadcastPage />} />
       </Routes>
     </Router>
   );

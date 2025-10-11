@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
-const BroadcastPage: React.FC = () => {
+const RobotAppTechBroadcastPage: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
   const navigate = useNavigate();
@@ -20,19 +20,34 @@ const BroadcastPage: React.FC = () => {
   // 比赛链接数据
   const matchLinks = [
     {
-      title: '风险管理师项目',
-      description: '山东省“技能兴鲁”职业技能大赛—第七届“百家能工”职业技能竞赛-风险管理师项目',
+      title: '开幕式',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛开幕式直播',
       url: 'https://meeting.tencent.com/dm/wFJDU4Fi7FLJ'
     },
     {
-      title: '比赛',
-      description: '点击查看比赛直播',
+      title: '教师组A比赛',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛教师组A比赛直播',
       url: 'a'
     },
     {
-      title: '比赛',
-      description: '点击查看比赛直播',
+      title: '教师组B比赛',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛教师组B比赛直播',
       url: 'b'
+    },
+    {
+      title: '学生组A比赛',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛学生组A比赛直播',
+      url: 'c'
+    },
+    {
+      title: '学生组B比赛',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛学生组B比赛直播',
+      url: 'd'
+    },
+    {
+      title: '裁判现场',
+      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛裁判现场',
+      url: 'e'
     }
   ];
 
@@ -58,7 +73,7 @@ const BroadcastPage: React.FC = () => {
             {
               key: '1',
               icon: <VideoCameraOutlined />,
-              label: '比赛转播',
+              label: '比赛直播',
             },
           ]}
         />
@@ -104,7 +119,7 @@ const BroadcastPage: React.FC = () => {
             boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
           }}
           >
-          <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>比赛转播</h2>
+          <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛直播</h2>
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
@@ -195,4 +210,4 @@ const BroadcastPage: React.FC = () => {
   );
 };
 
-export default BroadcastPage;
+export default RobotAppTechBroadcastPage;
