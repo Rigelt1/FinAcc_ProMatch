@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '100px auto', padding: 20 }}>
+    <div style={{ maxWidth: 448, margin: '100px auto', padding: 20 }}>
       <h1 style={{ textAlign: 'center', marginBottom: 24 }}>山东省“技能兴鲁”职业技能大赛</h1>
       <Form
         name="login"
