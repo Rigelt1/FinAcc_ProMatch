@@ -18,5 +18,8 @@
         "Cache-Control": "s-maxage=31536000, stale-while-revalidate"
       }
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

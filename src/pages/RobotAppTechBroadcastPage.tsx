@@ -20,50 +20,58 @@ const RobotAppTechBroadcastPage: React.FC = () => {
   // 比赛链接数据
   const matchLinks = [
     {
-      title: '服务机器人应用技术员赛项开幕式',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛开幕式直播',
+      title: '服务机器人应用技术员项目开幕式',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目开幕式直播',
       url: 'https://meeting.tencent.com/dm/7R2X1Zik5cEF',
       group:"1"
     },
     {
       title: '职工（教师）组A区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛职工（教师）组A区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组A区比赛直播',
       url: 'https://meeting.tencent.com/dm/KVmFQ6oKUEiX',
       group:"2"
     },
     {
       title: '职工（教师）组B区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛职工（教师）组B区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组B区比赛直播',
       url: 'https://meeting.tencent.com/dm/UYUPgi4X0jEq',
       group:"2"
     },
     {
       title: '职工（教师）组C区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛职工（教师）组C区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组C区比赛直播',
       url: 'https://meeting.tencent.com/dm/2b9U7Bpm5DaT',
       group:"2"
     },
     {
       title: '学生组A区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛学生组A区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组A区比赛直播',
       url: 'https://meeting.tencent.com/dm/RlQF4eOullQE',
       group:"3"
     },
     {
       title: '学生组B区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛学生组B区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组B区比赛直播',
       url: 'https://meeting.tencent.com/dm/h153QXYgNCZr',
       group:"3"
     },
     {
       title: '学生组C区',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛学生组C区比赛直播',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组C区比赛直播',
       url: 'https://meeting.tencent.com/dm/63K0QLkP6gQE',
       group:"3"
     },
     {
-      title: '竞赛裁判现场',
-      description: '山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛裁判现场',
+      title: '裁判现场',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目裁判现场',
       url: 'https://meeting.tencent.com/dm/IHOPpPHWvsL8',
       group:"4"
     }
@@ -137,7 +145,8 @@ const RobotAppTechBroadcastPage: React.FC = () => {
             boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
           }}
           >
-          <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省“技能兴鲁”职业技能大赛——服务机器人应用技术员技能竞赛直播</h2>
+          <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省“技能兴鲁”职业技能大赛</h2>
+          <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目</h2>
           {['1', '2', '3', '4'].map((group) => {
             const groupLinks = matchLinks.filter(link => link.group === group);
             if (groupLinks.length === 0) return null;
@@ -153,7 +162,7 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                 groupTitle = '学生组';
                 break;
               case '4':
-                groupTitle = '裁判现场';
+                groupTitle = '裁判组';
                 break;
               default:
                 break;
@@ -196,7 +205,7 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                         borderRadius: '8px',
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                         transition: 'all 0.3s ease',
-                        height: expandedCards[link.url] ? '250px' : '180px',
+                        height: expandedCards[link.url] ? '265px' : '180px',
                         overflow: 'hidden'
                       }}
                       hoverable
@@ -208,12 +217,20 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                       }}>
                         <p style={{ 
                           color: '#666',
-                          marginBottom: '12px',
+                          marginBottom: '0px',
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
                           WebkitBoxOrient: 'vertical',
                           overflow: 'hidden'
                         }}>{link.description}</p>
+                        <p style={{ 
+                          color: '#666',
+                          marginTop: '0px',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden'
+                        }}>{link.description1}</p>
                       </div>
                       {expandedCards[link.url] && (
                         <div style={{ 

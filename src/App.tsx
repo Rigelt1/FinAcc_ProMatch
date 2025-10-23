@@ -6,12 +6,20 @@ import RMSBroadcastPage from './pages/RMSBroadcastPage';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/robotapptechbroadcast" element={<RobotAppTechBroadcastPage />} />
-        <Route path="/rmsbroadcast" element={<RMSBroadcastPage />} />
-      </Routes>
+      <div style={{
+        backgroundImage: "url('/background1.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh'
+      }}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/robotapptechbroadcast" element={<RobotAppTechBroadcastPage />} />
+          <Route path="/rmsbroadcast" element={<RMSBroadcastPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
