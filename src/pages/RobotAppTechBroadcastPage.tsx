@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Card, Button, Avatar, Dropdown, message } from 'antd';
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  VideoCameraOutlined,
-  LinkOutlined,
-  UserOutlined,
-  LogoutOutlined
-} from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-
-const { Header, Sider, Content } = Layout;
+import { Card, Button, Divider } from 'antd';
+import { LinkOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import NavigationLayout from '../components/NavigationLayout';
+import { Link } from 'react-router-dom';
 
 const RobotAppTechBroadcastPage: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
-  const navigate = useNavigate();
   
   // 比赛链接数据
   const matchLinks = [
@@ -23,63 +13,59 @@ const RobotAppTechBroadcastPage: React.FC = () => {
       title: '服务机器人应用技术员项目开幕式',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目开幕式直播',
-      url: 'https://meeting.tencent.com/dm/7R2X1Zik5cEF',
+      url: 'https://meeting.tencent.com/dm/UA9GDPfRTFfS',
       group:"1"
     },
     {
       title: '职工（教师）组A区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组A区比赛直播',
-      url: 'https://meeting.tencent.com/dm/KVmFQ6oKUEiX',
+      url: 'https://meeting.tencent.com/dm/397VyqJaBtcb',
       group:"2"
     },
     {
       title: '职工（教师）组B区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组B区比赛直播',
-      url: 'https://meeting.tencent.com/dm/UYUPgi4X0jEq',
+      url: 'https://meeting.tencent.com/dm/SuvLVZORyVD3',
       group:"2"
     },
     {
       title: '职工（教师）组C区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目职工（教师）组C区比赛直播',
-      url: 'https://meeting.tencent.com/dm/2b9U7Bpm5DaT',
+      url: 'https://meeting.tencent.com/dm/b9ljXCQ77uIP',
       group:"2"
     },
     {
       title: '学生组A区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组A区比赛直播',
-      url: 'https://meeting.tencent.com/dm/RlQF4eOullQE',
+      url: 'https://meeting.tencent.com/dm/sCLLhg3Y71MC',
       group:"3"
     },
     {
       title: '学生组B区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组B区比赛直播',
-      url: 'https://meeting.tencent.com/dm/h153QXYgNCZr',
+      url: 'https://meeting.tencent.com/dm/mk4ICC3wVELY',
       group:"3"
     },
     {
       title: '学生组C区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目学生组C区比赛直播',
-      url: 'https://meeting.tencent.com/dm/63K0QLkP6gQE',
+      url: 'https://meeting.tencent.com/dm/bqVDxX81KdWZ',
       group:"3"
     },
     {
       title: '裁判现场',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目裁判现场',
-      url: 'https://meeting.tencent.com/dm/IHOPpPHWvsL8',
+      url: 'https://meeting.tencent.com/dm/m0bskaBxzyF9',
       group:"4"
     }
   ];
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
 
   const handleLinkClick = (url: string) => {
     const newState: Record<string, boolean> = {};
@@ -88,63 +74,25 @@ const RobotAppTechBroadcastPage: React.FC = () => {
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <VideoCameraOutlined />,
-              label: '比赛直播',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: '#fff' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={toggleCollapsed}
-              style={{ fontSize: '16px', width: 64, height: 64 }}
-            />
-            <Dropdown
-              menu={{
-                items: [
-                  {
-                    key: 'logout',
-                    icon: <LogoutOutlined />,
-                    label: '注销登录',
-                    onClick: () => {
-                      message.success('已成功退出系统');
-                      navigate('/login');
-                    }
-                  }
-                ]
-              }}
-              placement="bottomRight"
-            >
-              <div style={{ marginRight: 24, cursor: 'pointer' }}>
-                <Avatar icon={<UserOutlined />} />
-                <span style={{ marginLeft: 8 }}>管理员</span>
-              </div>
-            </Dropdown>
-          </div>
-        </Header>
-        <Content 
-          style={{ 
-            margin: '24px 16px', 
-            padding: '24px', 
-            background: '#fff',
-            borderRadius: '8px',
-            boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
-          }}
-          >
+    <NavigationLayout
+      menuItems={[
+        {
+          key: '1',
+          icon: <VideoCameraOutlined />,
+          label: <Link to='/robotapptechbroadcast'>比赛直播</Link>,
+        },
+      ]}
+      defaultSelectedKey="1"
+    >
+      <div 
+        style={{ 
+          margin: '24px 16px', 
+          padding: '24px', 
+          background: '#fff',
+          borderRadius: '8px',
+          boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
+        }}
+      >
           <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省“技能兴鲁”职业技能大赛</h2>
           <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省人工智能技术创新应用职业技能竞赛—服务机器人应用技术员项目</h2>
           {['1', '2', '3', '4'].map((group) => {
@@ -176,7 +124,12 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                   gap: 24,
                   padding: '0 8px'
                 }}>
-                  <h3 style={{ gridColumn: '1 / -1', color: '#333', marginBottom: '16px' }}>{groupTitle}</h3>
+                  <Divider 
+                    style={{ gridColumn: '1 / -1', color: '#333', marginBottom: '0px' }}
+                    orientation="left"
+                  >
+                    {groupTitle}
+                  </Divider>
                   {groupLinks.map((link) => (
                     <Card
                       key={link.url}
@@ -217,6 +170,7 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                       }}>
                         <p style={{ 
                           color: '#666',
+                          marginTop: '0px',
                           marginBottom: '0px',
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
@@ -259,9 +213,8 @@ const RobotAppTechBroadcastPage: React.FC = () => {
                 </div>
               </div>
             )})}
-        </Content>
-      </Layout>
-    </Layout>
+      </div>
+    </NavigationLayout>
   );
 };
 

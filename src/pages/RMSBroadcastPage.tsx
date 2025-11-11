@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Card, Button, Avatar, Dropdown, message } from 'antd';
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  VideoCameraOutlined,
-  LinkOutlined,
-  UserOutlined,
-  LogoutOutlined
-} from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-
-const { Header, Sider, Content } = Layout;
+import { Card, Button, Divider } from 'antd';
+import { LinkOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import NavigationLayout from '../components/NavigationLayout';
 
 const RMSBroadcastPage: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
-  const navigate = useNavigate();
   
   // 比赛链接数据
   const matchLinks = [
@@ -23,63 +13,66 @@ const RMSBroadcastPage: React.FC = () => {
       title: '风险管理师职业技能项目开幕式',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目开幕式直播',
-      url: 'https://meeting.tencent.com/dm/7R2X1Zik5cEF',
+      url: 'https://meeting.tencent.com/dm/UbFsSkkbkvQA',
       group:"1"
     },
     {
       title: '职工（教师）组A区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目教师组A区比赛直播',
-      url: 'https://meeting.tencent.com/dm/KVmFQ6oKUEiX',
+      url: 'https://meeting.tencent.com/dm/KPhJon6UWmT5',
       group:"2"
     },
     {
       title: '职工（教师）组B区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目教师组B区比赛直播',
-      url: 'https://meeting.tencent.com/dm/UYUPgi4X0jEq',
+      url: 'https://meeting.tencent.com/dm/ktdvW0IS8icZ',
       group:"2"
     },
     {
       title: '职工（教师）组C区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目教师组C区比赛直播',
-      url: 'https://meeting.tencent.com/dm/2b9U7Bpm5DaT',
+      url: 'https://meeting.tencent.com/dm/7uvJFKiBUJrT',
+      group:"2"
+    },
+    {
+      title: '职工（教师）组D区',
+      description: '山东省“技能兴鲁”职业技能大赛',
+      description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目教师组D区比赛直播',
+      url: 'https://meeting.tencent.com/dm/nA1VLkRLmOLF',
       group:"2"
     },
     {
       title: '学生组A区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目学生组A区比赛直播',
-      url: 'https://meeting.tencent.com/dm/RlQF4eOullQE',
+      url: 'https://meeting.tencent.com/dm/WoIz8LiqZowY',
       group:"3"
     },
     {
       title: '学生组B区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目学生组B区比赛直播',
-      url: 'https://meeting.tencent.com/dm/h153QXYgNCZr',
+      url: 'https://meeting.tencent.com/dm/iZAx579A1Kpm',
       group:"3"
     },
     {
       title: '学生组C区',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目学生组C区比赛直播',
-      url: 'https://meeting.tencent.com/dm/63K0QLkP6gQE',
+      url: 'https://meeting.tencent.com/dm/Xdu0yemwsCYb',
       group:"3"
     },
     {
       title: '裁判现场',
       description: '山东省“技能兴鲁”职业技能大赛',
       description1:'第七届“百家能工”职业技能竞赛—风险管理师职业技能项目裁判现场',
-      url: 'https://meeting.tencent.com/dm/IHOPpPHWvsL8',
+      url: 'https://meeting.tencent.com/dm/5VGXrZVMKwxe',
       group:"4"
     }
   ];
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
 
   const handleLinkClick = (url: string) => {
     const newState: Record<string, boolean> = {};
@@ -88,63 +81,25 @@ const RMSBroadcastPage: React.FC = () => {
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <VideoCameraOutlined />,
-              label: '比赛直播',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: '#fff' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={toggleCollapsed}
-              style={{ fontSize: '16px', width: 64, height: 64 }}
-            />
-            <Dropdown
-              menu={{
-                items: [
-                  {
-                    key: 'logout',
-                    icon: <LogoutOutlined />,
-                    label: '注销登录',
-                    onClick: () => {
-                      message.success('已成功退出系统');
-                      navigate('/login');
-                    }
-                  }
-                ]
-              }}
-              placement="bottomRight"
-            >
-              <div style={{ marginRight: 24, cursor: 'pointer' }}>
-                <Avatar icon={<UserOutlined />} />
-                <span style={{ marginLeft: 8 }}>管理员</span>
-              </div>
-            </Dropdown>
-          </div>
-        </Header>
-        <Content 
-          style={{ 
-            margin: '24px 16px', 
-            padding: '24px', 
-            background: '#fff',
-            borderRadius: '8px',
-            boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
-          }}
-          >
+    <NavigationLayout
+      menuItems={[
+        {
+          key: '1',
+          icon: <VideoCameraOutlined />,
+          label: <Link to='/rmsbroadcast'>比赛直播</Link>,
+        },
+      ]}
+      defaultSelectedKey="1"
+    >
+      <div 
+        style={{ 
+          margin: '24px 16px', 
+          padding: '24px', 
+          background: '#fff',
+          borderRadius: '8px',
+          boxShadow: '0 1px 4px rgba(0, 0, 0, 0.1)'
+        }}
+      >
           <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>山东省“技能兴鲁”职业技能大赛</h2>
           <h2 style={{ fontSize: '24px', marginBottom: '24px', color: '#1890ff' }}>第七届“百家能工”职业技能竞赛—风险管理师职业技能项目</h2>
           {['1', '2', '3', '4'].map((group) => {
@@ -175,7 +130,12 @@ const RMSBroadcastPage: React.FC = () => {
                   gap: 24,
                   padding: '0 8px'
                 }}>
-                  <h3 style={{ gridColumn: '1 / -1', color: '#333', marginBottom: '0px' }}>{groupTitle}</h3>
+                  <Divider 
+                    style={{ gridColumn: '1 / -1', color: '#333', marginBottom: '0px' }}
+                    orientation="left"
+                  >
+                    {groupTitle}
+                  </Divider>
                   {groupLinks.map((link) => (
                     <Card
                       key={link.url}
@@ -216,6 +176,7 @@ const RMSBroadcastPage: React.FC = () => {
                       }}>
                         <p style={{ 
                           color: '#666',
+                          marginTop: '0px',
                           marginBottom: '0px',
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
@@ -258,9 +219,8 @@ const RMSBroadcastPage: React.FC = () => {
                 </div>
               </div>
             )})}
-        </Content>
-      </Layout>
-    </Layout>
+      </div>
+    </NavigationLayout>
   );
 };
 
