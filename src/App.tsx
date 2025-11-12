@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginPage from './pages/LoginPage';
 import RobotAppTechBroadcastPage from './pages/RobotAppTechBroadcastPage';
 import RMSBroadcastPage from './pages/RMSBroadcastPage';
+import TestRunningPage from './pages/TestRunningPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/robotapptechbroadcast" element={<RobotAppTechBroadcastPage />} />
           <Route path="/rmsbroadcast" element={<RMSBroadcastPage />} />
+          <Route path="/test" element={<TestRunningPage />} />
         </Routes>
       </div>
     </Router>

@@ -11,17 +11,22 @@ const LoginPage: React.FC = () => {
     { username: 'rmsadmin1', password: 'p@ssword123' },
     { username: 'ratadmin1', password: 'p@ssword456' },
     { username: 'admin1', password: 'admin123' },
-    { username: 'admin2', password: 'admin456' }
+    { username: 'admin2', password: 'admin456' },
+    { username: 'testmodel', password: 'test123' }
   ];
 
   const onFinish = (values: { username: string; password: string }) => {
     setLoading(true);
     const { username, password } = values;
-    let comModel = false;
+    let comModel = 0;
     if(username === 'rmsadmin1' || username === 'admin1') {
-          comModel = true;
-        }else{
-          comModel = false;
+          comModel = 0;
+        }
+        else if(username === 'testmodel'){
+          comModel = 2;
+        }
+        else{
+          comModel = 1;
         }
     // 模拟登录验证
     setTimeout(() => {
@@ -29,12 +34,15 @@ const LoginPage: React.FC = () => {
         cred => cred.username === username && cred.password === password
       );
       
-      if (isValid && comModel) {
+      if (isValid && comModel === 1) {
         message.success('登录成功!');
         navigate('/robotapptechbroadcast');
-      } else if(isValid && !comModel){
+      } else if(isValid && comModel === 0){
           message.success('登录成功!');
           navigate('/rmsbroadcast');
+      }else if(isValid && comModel === 2){
+          message.success('登录成功!');
+          navigate('/test');
       }else {
         message.error('用户名或密码错误');
       }
