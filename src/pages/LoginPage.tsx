@@ -34,10 +34,10 @@ const LoginPage: React.FC = () => {
         cred => cred.username === username && cred.password === password
       );
       
-      if (isValid && comModel === 1) {
+      if (isValid && comModel === 0) {
         message.success('登录成功!');
         navigate('/robotapptechbroadcast');
-      } else if(isValid && comModel === 0){
+      } else if(isValid && comModel === 1){
           message.success('登录成功!');
           navigate('/rmsbroadcast');
       }else if(isValid && comModel === 2){
