@@ -31,6 +31,12 @@ const ShowTwoLinksPage: React.FC = () => {
     setExpandedCards(newState);
   };
 
+  const normalizeUrl = (url: string) => {
+    if (!url) return url;
+    // 如果已经有协议（http:// 或 https://）或以 // 开头，保留原样；否则默认加 https://
+    return /^(https?:)?\/\//i.test(url) ? url : `https://${url}`;
+  };
+
   return (
     <NavigationLayout
       menuItems={[
@@ -96,7 +102,7 @@ const ShowTwoLinksPage: React.FC = () => {
                           icon={<LinkOutlined />} 
                           onClick={(e) => {
                             e.stopPropagation();
-                            window.open(link.url, '_blank');
+                            window.open(normalizeUrl(link.url), '_blank');
                           }}
                           style={{ color: '#1890ff' }}
                         >
@@ -148,7 +154,7 @@ const ShowTwoLinksPage: React.FC = () => {
                             type="primary" 
                             onClick={(e) => {
                               e.stopPropagation();
-                              window.open(link.url, '_blank');
+                              window.open(normalizeUrl(link.url), '_blank');
                             }}
                             style={{ 
                               width: '100%'
