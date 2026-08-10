@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage';
 import RobotAppTechBroadcastPage from './pages/RobotAppTechBroadcastPage';
 import RMSBroadcastPage from './pages/RMSBroadcastPage';
 import TestRunningPage from './pages/TestRunningPage';
+import ShowTwoLinksPage from './pages/ShowTwoLinksPage';
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
         minHeight: '100vh'
       }}>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/" element={<Navigate to="/showtwolinks" replace />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/robotapptechbroadcast" element={<RobotAppTechBroadcastPage />} />
           <Route path="/rmsbroadcast" element={<RMSBroadcastPage />} />
           <Route path="/test" element={<TestRunningPage />} />
+          <Route path="/showtwolinks" element={<ShowTwoLinksPage />} />
         </Routes>
       </div>
     </Router>
